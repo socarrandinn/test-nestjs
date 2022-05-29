@@ -19,8 +19,13 @@ export class LicitacionController {
   
   @Get()
   async index() {
+    return await this.service.findLimit();
+  } 
+  
+  @Get('/all')
+  async all() {
     return await this.service.findAll();
-  }
+  } 
 
   @Get(':id')
   async find(@Param('id') id: string) {

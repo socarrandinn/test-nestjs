@@ -13,6 +13,10 @@ export class LicitacionService {
     return await this.model.find().exec();
   }
 
+  async findLimit(): Promise<Licitacion[]> {
+    return await this.model.find({}).limit(5).exec();
+  }
+
   async findOne(id: string): Promise<Licitacion> {
     return await this.model.findById(id).exec();
   }
