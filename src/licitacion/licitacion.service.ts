@@ -7,7 +7,10 @@ import { Licitacion, LicitacionDocument } from './shemas/licitacion.schema';
 
 @Injectable()
 export class LicitacionService {
-  constructor(@InjectModel(Licitacion.name) private readonly model: Model<LicitacionDocument>) {}
+  constructor(
+    @InjectModel(Licitacion.name)
+    private readonly model: Model<LicitacionDocument>,
+  ) {}
 
   async findAll(): Promise<Licitacion[]> {
     return await this.model.find().exec();
@@ -29,7 +32,10 @@ export class LicitacionService {
     }).save();
   }
 
-  async update(id: string, updateLicitacionDto: UpdateLicitacionDto): Promise<Licitacion> {
+  async update(
+    id: string,
+    updateLicitacionDto: UpdateLicitacionDto,
+  ): Promise<Licitacion> {
     return await this.model.findByIdAndUpdate(id, updateLicitacionDto).exec();
   }
 

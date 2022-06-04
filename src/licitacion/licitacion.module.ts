@@ -9,8 +9,9 @@ import { Licitacion, LicitacionSchema } from './shemas/licitacion.schema';
   providers: [LicitacionService],
   controllers: [LicitacionController],
   imports: [
-    MongooseModule.forFeature([{ name: Licitacion.name, schema: LicitacionSchema }]),
+    MongooseModule.forFeature([
+      { name: Licitacion.name, schema: LicitacionSchema },
+    ]),
   ],
 })
-
 export class LicitacionModule {}

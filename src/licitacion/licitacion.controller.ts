@@ -7,25 +7,26 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 
 import { CreateLicitacionDto } from './DTO/create-licitacion.dto';
 import { UpdateLicitacionDto } from './DTO/update-licitacion.dto';
 import { LicitacionService } from './licitacion.service';
 
+@ApiTags('licitacions')
 @Controller('licitacions')
-
 export class LicitacionController {
   constructor(private readonly service: LicitacionService) {}
-  
+
   @Get()
   async index() {
     return await this.service.findLimit();
-  } 
-  
+  }
+
   @Get('/all')
   async all() {
     return await this.service.findAll();
-  } 
+  }
 
   @Get(':id')
   async find(@Param('id') id: string) {
@@ -38,7 +39,10 @@ export class LicitacionController {
   }
 
   @Put(':id')
-  async update(@Param('id') id: string, @Body() updateLicitacionDto: UpdateLicitacionDto) {
+  async update(
+    @Param('id') id: string,
+    @Body() updateLicitacionDto: UpdateLicitacionDto,
+  ) {
     return await this.service.update(id, updateLicitacionDto);
   }
 

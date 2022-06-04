@@ -3,4 +3,6 @@ export class LicitacionDTO {
   description?: string
   presupuesto?: number
   categoria?: string
+ //  isUrgente?: boolean
+
 }
